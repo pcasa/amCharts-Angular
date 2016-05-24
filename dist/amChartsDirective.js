@@ -227,6 +227,8 @@ angular.module('amChartsDirective', []).directive('amChart', ['$q', function ($q
 
                 var chartKeys = Object.keys(o);
                 for (var i = 0; i < chartKeys.length; i++) {
+                  // If key is legend, then continue
+                  if (chartKeys[i] == 'legend') { continue; }
                   if (typeof o[chartKeys[i]] !== 'object' && typeof o[chartKeys[i]] !== 'function') {
                     chart[chartKeys[i]] = o[chartKeys[i]];
                   } else if (typeof o[chartKeys[i]] === 'object') {
