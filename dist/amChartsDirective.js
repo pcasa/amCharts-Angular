@@ -272,7 +272,8 @@ angular.module('amChartsDirective', []).directive('amChart', ['$q', function ($q
 
           $scope.$on('amCharts.renderChart', function (event, amChartOptions, id) {
             if (id === $el[0].id || !id) {
-              chart.clear();
+              // Only clear charts that have been rendered
+              if (chart.div) { chart.clear(); }
               renderChart(amChartOptions);
             }
           });
