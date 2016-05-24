@@ -279,7 +279,8 @@ angular.module('amChartsDirective', []).directive('amChart', ['$q', function ($q
           });
 
           $scope.$on('$destroy', function () {
-            chart.clear();
+            // Only clear charts that have been rendered
+            if (chart.div) { chart.clear(); }
           });
         }
       });
